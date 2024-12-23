@@ -59,7 +59,6 @@ const AnalysisForm = () => {
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
 
-        // Also parse the CSV for display
         const text = await blob.text();
         const rows = text.split('\n');
         const data = [];
@@ -72,7 +71,7 @@ const AnalysisForm = () => {
           }
           if (isDataSection && row.trim()) {
             const [date, entryPrice, exitPrice, volumeRatio, dailyReturn, totalReturn] = row.split(',');
-            if (date !== 'Date') { // Skip header row
+            if (date !== 'Date') { 
               data.push({
                 Date: date,
                 Entry_Price: parseFloat(entryPrice),
